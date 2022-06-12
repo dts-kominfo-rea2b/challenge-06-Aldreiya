@@ -39,10 +39,10 @@ const bacaData = (fnCallback) => {
         let arOb = JSON.parse(data);
         temp[2] = arOb[0].data.message.split(' ')[1];
         console.log(temp[2]);
+        return fnCallback(err,temp);
       })
     })
   })
-  return fnCallback(temp);
 };
 
 
