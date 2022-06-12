@@ -27,19 +27,19 @@ const bacaData = (fnCallback) => {
     let arOb = JSON.parse(data);
     temp[0] = arOb.message.split(' ')[1];
     console.log(temp[0]);
-  })
     
-  fs.readFile(file2, (err, data) => {
-    if(err) return console.error(err);
-    let arOb = JSON.parse(data);
-    temp[1] = arOb[0].message.split(' ')[1];
-    console.log(temp[1]);
-    
-    fs.readFile(file3, (err, data) => {
+    fs.readFile(file2, (err, data) => {
       if(err) return console.error(err);
       let arOb = JSON.parse(data);
-      temp[2] = arOb[0].data.message.split(' ')[1];
-      console.log(temp[2]);
+      temp[1] = arOb[0].message.split(' ')[1];
+      console.log(temp[1]);
+      
+      fs.readFile(file3, (err, data) => {
+        if(err) return console.error(err);
+        let arOb = JSON.parse(data);
+        temp[2] = arOb[0].data.message.split(' ')[1];
+        console.log(temp[2]);
+      })
     })
   })
   return fnCallback(temp);
